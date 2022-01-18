@@ -4,7 +4,10 @@ const {
     homeMultidata,
     honmData,
     detail,
-    recommend
+    recommend,
+    category,
+    subcategory,
+    subDetail
 } = require('../middleware/supermall.middleware')
 
 const superRouter = new Router({prefix:'/supermall'})
@@ -20,5 +23,14 @@ superRouter.get('/detail',detail)
 
 // 接口四
 superRouter.get('/recommend',recommend)
+
+// 接口五
+superRouter.get('/category',category)
+
+// 接口六
+superRouter.get('/subcategory',subcategory)
+
+// 接口七
+superRouter.get('/subcategory/detail',subDetail)
 
 module.exports = superRouter
