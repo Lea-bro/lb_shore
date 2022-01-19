@@ -11,8 +11,9 @@ const {
     success
 } = require('../controller/auth.controller');
 
+const {vueVerify} = require('../middleware/vueVerify')
 // 用户登录： 验证账号密码 -> 颁发token
-authRouter.post('/login',verifyLogin,login)
-authRouter.get('/test', verifyAuth,success)
+authRouter.post('/login',vueVerify,verifyLogin,login)
+authRouter.get('/test', vueVerify,verifyAuth,success)
 
 module.exports = authRouter
