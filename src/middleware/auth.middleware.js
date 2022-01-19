@@ -8,6 +8,7 @@ class authVerify{
     async verifyLogin(ctx,next){
         // 1.获取用户名和密码
         const { name, password} = ctx.request.body;
+        // console.log(name,password)
 
         // 2.判断账号密码是否为空
         if(!name || !password){

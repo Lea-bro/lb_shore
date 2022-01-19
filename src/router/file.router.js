@@ -13,10 +13,10 @@ const {
 } = require('../controller/avatar.controller');
 const fileRouter = new Router({prefix:"/upload"});
 
-const {vueVerify} = require('../middleware/vueVerify')
+
 
 // 上传用户头像： token验证 -> 头像文件处理 -> 获取头像信息再存储
-fileRouter.post('/avatar',vueVerify,verifyAuth,avatarHandle,saveAvatarInfo)
+fileRouter.post('/avatar',verifyAuth,avatarHandle,saveAvatarInfo)
 
 
 
