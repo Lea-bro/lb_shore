@@ -7,6 +7,7 @@ const md5password = require('../utils/password-handle.js');
 class authVerify{
     async verifyLogin(ctx,next){
         // 1.获取用户名和密码
+        // console.log('123')
         const { name, password} = ctx.request.body;
         // console.log(name,password)
 

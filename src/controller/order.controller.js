@@ -1,4 +1,4 @@
-const orserService = require('../service/order.service');
+const orderService = require('../service/order.service');
 class OrderController{
     // 添加订单
     async orderAdd(ctx,next){
@@ -13,10 +13,19 @@ class OrderController{
         // console.log(dataArray)
         for(let i = 0; i < dataArray.length;i++){
             // console.log(1)
-            await orserService.orderAdd(dataArray[i])
+            await orderService.orderAdd(dataArray[i])
         }
         ctx.body = "商品购买成功"
         
+    }
+
+    // 获取订单数量
+    async orderNumber(ctx,next){
+        // console.log(ctx.user)
+        const { id } = ctx.user
+        const result = await orderService.orderNum(id)
+        // console.log(result)
+        ctx.body = result
     }
 }
 
