@@ -19,6 +19,18 @@ class UserService{
         const [result] = await connection.execute(statement,[avatarUrl,userId])
         return result
     }
+
+    async getUserList(){
+        const statement = `SELECT * FROM users`;
+        const [result] = await connection.execute(statement)
+        return result
+    }
+
+    async deleteUser(UserId){
+        const statement =  `DELETE FROM users WHERE id = ?;`
+        const [result] = await connection.execute(statement,[UserId])
+        return result
+    }
 }
 
 module.exports = new UserService()

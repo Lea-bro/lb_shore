@@ -9,11 +9,18 @@ class OrserService{
         return result
     }
 
-    // 订单数量
+    // 获取用户订单
     async orderNum(userId){
         const statement = `SELECT * FROM orders WHERE user_id = ?;`
 
         const [result] = await connection.execute(statement,[userId])
+        return result
+    }
+
+    // 获取所有订单
+    async allGetOrder(){
+        const statement = `SELECT * FROM orders`
+        const [result] = await connection.execute(statement)
         return result
     }
 }

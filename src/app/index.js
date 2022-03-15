@@ -9,7 +9,9 @@ const app = new Koa();
 
 app.use(bodyParser()); //对JSON数据解析
 app.use(cors())
-
+// app.use(cors({
+//     origin: '*'
+//   }))
 useRoutes(app);
 
 app.on('error',errorHandle)

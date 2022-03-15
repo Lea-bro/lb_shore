@@ -2,6 +2,7 @@ const orderService = require('../service/order.service');
 class OrderController{
     // 添加订单
     async orderAdd(ctx,next){
+        console.log("1111")
         const { id } = ctx.user
         const orderNum = new Date().getTime() + id
         const orderInfo = ctx.request.body.orderInfo
@@ -25,6 +26,11 @@ class OrderController{
         const { id } = ctx.user
         const result = await orderService.orderNum(id)
         // console.log(result)
+        ctx.body = result
+    }
+
+    async allGetOrder(ctx,next){
+        const result =  await orderService.allGetOrder()
         ctx.body = result
     }
 }

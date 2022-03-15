@@ -28,6 +28,26 @@ const avatarInfo = async(ctx,next) => {
     ctx.body = fs.createReadStream(`${AVATAR_PATH}/${avatarInfo.filename}`)
 }
 
+// 获取所有用户列表
+const getUserList = async(ctx,next) => {
+    // 1.获取所用用户列表
+    const result = await userService.getUserList()
+    ctx.body = result
+}
+// 删除用户
+const deleteUser = async(ctx,next) =>{
+    // console.log(ctx.request)
+    // 1.获取用户id
+    const {userId} = ctx.request.body
+    console.log(userId)
+
+    // 2.删除数据库中数据
+    const result = await userService.deleteUser(userId)
+
+    ctx.body = result
+
+}
+
 
 
 
@@ -35,5 +55,7 @@ const avatarInfo = async(ctx,next) => {
 
 module.exports = {
     create,
-    avatarInfo
+    avatarInfo,
+    getUserList,
+    deleteUser
 }

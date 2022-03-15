@@ -7,14 +7,17 @@ const {
 
 const {
     orderAdd,
-    orderNumber
+    orderNumber,
+    allGetOrder
 } = require('../controller/order.controller');
 
 // 添加订单：验证token -> 获取订单详情进行存储 
 orderRouter.post('/',verifyAuth,orderAdd)
 
-// 查询订单数量：验证token -> 获取订单数量
+// 查询用户订单：验证token -> 获取用户订单
 orderRouter.get('/',verifyAuth,orderNumber)
+// 获取所有订单
+orderRouter.get('/orders',allGetOrder)
 
 
 

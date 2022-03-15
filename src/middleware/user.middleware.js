@@ -19,7 +19,6 @@ const verifyUser = async (ctx,next) => {
         return sendError.USER_ALREADY_EXISTS(ctx)
     }
 
-
     await next()
 }
 
